@@ -1,11 +1,32 @@
-# Vue 3 + Typescript + Vite
+# EEXAR Developer Test
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[Online version on Github Pages](https://swawrzyn.github.io/eexar-test/)
 
-## Recommended IDE Setup
+## Instructions
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+0. Requirements
+- Node.js v16.x.x
+- Yarn
 
-## Type Support For `.vue` Imports in TS
+1. Clone repo and enter directory
+```
+$ git clone git@github.com:swawrzyn/eexar-test.git
+$ cd eexar-test
+```
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+2. Download node modules
+```
+$ yarn
+```
+
+3. Run dev server
+```
+$ yarn dev
+```
+
+4. (Optional) Run Tests
+```
+$ yarn test
+```
+
+Once the server has started you can view it at http://localhost:3000/eexar-test/.
