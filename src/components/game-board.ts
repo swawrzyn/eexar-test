@@ -1,5 +1,5 @@
 /* istanbul ignore next */ 
-import add_worker from "comlink:./game-worker";
+import add_worker from "comlink-shared:./game-worker";
 
 /**
  *Makes a 2d array.
