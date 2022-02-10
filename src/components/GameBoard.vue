@@ -45,7 +45,7 @@ export default defineComponent({
     watch(restart, (newVal, oldVal) => {
       if (newVal) {
         for (const [rowIndex, row] of board.entries()) {
-          board[rowIndex] = row.map((x) => 0);
+          board[rowIndex] = row.map((x: number) => 0);
         }
         emit("update:restart", false);
       }
