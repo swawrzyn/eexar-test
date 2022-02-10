@@ -1,3 +1,5 @@
+import { NdArray } from "@d4c/numjs";
+import nj from "@d4c/numjs/build/module/numjs.min.js";
 import { fib, fibInv, isFib } from "../utils/math";
 
 /**
@@ -21,6 +23,33 @@ const sumRowsCols = (
     row[coordinates[1]]++;
     return row;
   }
+};
+
+/**
+ *Adds 1 to affected row and column, depending on (click) coordinates. Using numjs for manipulation.
+ *
+ * @param {number[][]} array The 2d array to manipulate.
+ * @param {number[]} coordinates The (click) coordinates.
+ * @return {*} The modified board.
+ */
+const njSumRowsCols = (arr: number[][], coordinates: number[]) => {
+  const newArr = nj.array(arr) as NdArray;
+
+  // add column from click
+  newArr.slice(0, [coordinates[1], coordinates[1] + 1]).add(1, false);
+
+  // add row from click
+  newArr.slice([coordinates[0], coordinates[0] + 1]).add(1, false);
+
+  // remove double count
+  newArr
+    .slice(
+      [coordinates[0], coordinates[0] + 1],
+      [coordinates[1], coordinates[1] + 1]
+    )
+    .subtract(1, false);
+
+  return newArr.tolist() as number[][];
 };
 
 /**
@@ -102,4 +131,4 @@ const checkFibonacciRow = (row: number[], sequenceLength: number = 5) => {
   return [];
 };
 
-export { sumRowsCols, fibCheckRec, checkFibonacciRow };
+export { sumRowsCols, njSumRowsCols, fibCheckRec, checkFibonacciRow };

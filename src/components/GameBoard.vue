@@ -24,7 +24,8 @@ import {
   toRefs,
   watch,
 } from "vue";
-import { make2dArray, handleTileClick } from "./game-board";
+import { handleTileClick } from "./game-board";
+import { make2dArray } from "../utils/array";
 
 export default defineComponent({
   components: { GameTile },
@@ -44,7 +45,7 @@ export default defineComponent({
     watch(restart, (newVal, oldVal) => {
       if (newVal) {
         for (const [rowIndex, row] of board.entries()) {
-          board[rowIndex] = row.map(x => 0)
+          board[rowIndex] = row.map((x) => 0);
         }
         emit("update:restart", false);
       }

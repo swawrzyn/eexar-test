@@ -1,5 +1,17 @@
 # EEXAR Developer Test
 
+## Test Details
+- 50x50 Fibonacci sequence game
+- Cells are cleared if 5 consecutive Fibonacci numbers exist (aka. 1, 1, 2, 3, 5):
+    - From left to right
+    - From right to left
+    - From top to bottom
+    - From bottom to top
+- Written in Vue3 + TS + Vite
+- Tested using Jest
+- Styling by TailwindCSS
+- deployment using Github Actions
+
 [Online version on Github Pages](https://swawrzyn.github.io/eexar-test/)
 
 ## Instructions

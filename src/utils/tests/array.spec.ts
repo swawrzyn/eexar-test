@@ -1,4 +1,4 @@
-import { make2dArray } from "../game-board";
+import { make2dArray } from "../array";
 
 describe("make2dArray", () => {
   test("should create 2d array successfully", () => {

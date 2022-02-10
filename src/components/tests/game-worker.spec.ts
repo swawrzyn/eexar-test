@@ -1,4 +1,10 @@
-import { checkFibonacciRow, fibCheckRec, sumRowsCols } from "../game-worker";
+import nj from "@d4c/numjs";
+import {
+  checkFibonacciRow,
+  fibCheckRec,
+  sumRowsCols,
+  njSumRowsCols,
+} from "../game-worker";
 
 describe("sumRowsCols", () => {
   test("should add one to row and column of target coordinate", () => {
@@ -23,6 +29,28 @@ describe("sumRowsCols", () => {
     for (const [rowIndex, row] of startArray.entries()) {
       resArray.push(sumRowsCols(row, rowIndex, [2, 1]));
     }
+
+    for (const [rowIndex, row] of expected.entries()) {
+      for (const [cellIndex, cell] of row.entries()) {
+        expect(resArray[rowIndex][cellIndex]).toBe(cell);
+      }
+    }
+  });
+});
+
+describe("sumRowsCols", () => {
+  test("should add one to row and column of target coordinate", () => {
+    const expected = [
+      [0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 1],
+      [1, 1, 1, 1, 1],
+      [0, 0, 0, 0, 1],
+      [0, 0, 0, 0, 1],
+    ];
+
+    const startArray = nj.zeros([5, 5]).tolist() as number[][];
+
+    const resArray = njSumRowsCols(startArray, [2, 4]);
 
     for (const [rowIndex, row] of expected.entries()) {
       for (const [cellIndex, cell] of row.entries()) {

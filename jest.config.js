@@ -8,4 +8,6 @@ module.exports = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
   moduleFileExtensions: ["vue", "js", "ts"],
+  moduleDirectories: ["node_modules", "src"],
+  transformIgnorePatterns: ["node_modules/(?!@d4c/numjs)"],
 };
